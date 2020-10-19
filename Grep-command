@@ -1,0 +1,73 @@
+Grep is an acronym that stands for Global Regular Expression Print.
+
+Grep is a Linux / Unix command-line tool used to search for a string of characters in a specified file/files. 
+The text search pattern is called a regular expression. When it finds a match, it prints the line with the result. The grep command is handy when searching through large log files.
+
+NOTE : It is case-sensitive by default
+Syntax
+
+grep [pattern] [file]
+
+Example 1 : Search a string in a file, error.log
+
+grep ERROR error.log
+
+Example 2 : Search a complete word
+
+grep -w ERROR error.log
+
+Example 3 : It is case-sensitive by default, to search a string as case-insenstive 
+
+grep -i error error.log
+
+Example 4 : Search a string in complete folder
+
+grep ERROR path-to-folder/*
+
+Example 5 : Search a string in all txt files
+
+grep ERROR path-to-folder/*.txy
+
+Example 6 : Search a string in all files starting with specific characters
+
+grep ERROR path-to-folder/2020-10-10-*.logs
+
+Example 7 : Limit the output with max-count
+
+grep -m10 ERROR path-to-folder/*
+
+Example 8 : Sometimes you need to look some lines before your search
+
+grep -B 10 ERROR path-to-folder/*
+result will include 10 lines previous to search
+
+Example 9 : Sometimes you need to look some lines after your search
+
+grep -A 10 ERROR path-to-folder/*
+result will include 10 lines lines to search
+
+Example 10 : Nested grep
+
+grep ERROR path-to-folder/* | grep TimeOut
+
+Example 11 : Include subdirectories 
+
+grep -r ERROR path-to-folder/*
+
+Example 12 : Inverse grep, you can search what do not match with search 
+
+grep -v ERROR path-to-folder/*
+
+Example 13 : Search a complete line
+
+grep -x "Exception at line 100" path-to-folder/*
+
+Example 14 : List the names of matching files
+
+grep -l ERROR path-to-folder/*
+
+Example 15 : Count the number of matches
+
+grep -c ERROR path-to-folder/*
+
+
